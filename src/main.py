@@ -27,6 +27,11 @@ while(True):
     # green on LED 5 (debug)
     set_pixel(5, 0, 255, 0)
 
+    # RAM usage green (0%) to red (100%) on LED 7
+    mem = psutil.virtual_memory()
+    memu = int((mem.percent/100)*255)
+    set_pixel(6, memu, 255 - memu, 0)
+
     # cpu usage green (0%) to red (100%) on LED 7
     cpu=int(psutil.cpu_percent()*255)
     set_pixel(7, cpu, 255-cpu, 0)
