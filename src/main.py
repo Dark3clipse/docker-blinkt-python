@@ -15,14 +15,24 @@ while(True):
     for container in client.containers.list():
         if container.attrs['Config']['Image'].split('@')[0]=="angelnu/glusterfs:latest":
             set_pixel(0, 0, 0, 255)
+        else:
+            set_pixel(0, 0, 0, 0)
         if container.attrs['Config']['Image'].split('@')[0]=="shadash/docker-multiarch-jenkins:latest":
             set_pixel(1, 255, 255, 0)
+        else:
+            set_pixel(2, 0, 0, 0)
         if container.attrs['Config']['Image'].split('@')[0]=="registry:2":
             set_pixel(2, 255, 255, 255)
+        else:
+            set_pixel(3, 0, 0, 0)
         if container.attrs['Config']['Image'].split('@')[0]=="shadash/docker-multiarch-visualizer:v1":
             set_pixel(3, 128, 0, 255)
+        else:
+            set_pixel(4, 0, 0, 0)
         if container.attrs['Config']['Image'].split('@')[0]=="nginx:latest":
             set_pixel(4, 255, 0, 255)
+        else:
+            set_pixel(4, 0, 0, 0)
 
     # disk usage green (0%) to red (100%) on LED 5
     disku = int((psutil.disk_usage('/dev/sda1').percent/100)*255)
