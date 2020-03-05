@@ -13,15 +13,15 @@ client = docker.from_env()
 while(True):
     for container in client.containers.list():
         if container.attrs['Config']['Image']=="angelnu/glusterfs:latest":
-            set_pixel(0, 255, 255, 255)
-        elif container.attrs['Config']['Image']=="shadash/docker-multiarch-jenkins:latest":
-            set_pixel(1, 255, 255, 255)
-        elif container.attrs['Config']['Image']=="registry:2":
+            set_pixel(0, 0, 0, 255)
+        if container.attrs['Config']['Image']=="shadash/docker-multiarch-jenkins:latest":
+            set_pixel(1, 255, 255, 0)
+        if container.attrs['Config']['Image']=="registry:2":
             set_pixel(2, 255, 255, 255)
-        elif container.attrs['Config']['Image']=="shadash/docker-multiarch-visualizer:v1":
-            set_pixel(3, 255, 255, 255)
-        elif container.attrs['Config']['Image']=="nginx:latest":
-            set_pixel(4, 255, 255, 255)
+        if container.attrs['Config']['Image']=="shadash/docker-multiarch-visualizer:v1":
+            set_pixel(3, 128, 0, 255)
+        if container.attrs['Config']['Image']=="nginx:latest":
+            set_pixel(4, 255, 0, 255)
     set_pixel(5, 0, 255, 0)
     show()
     time.sleep(0.5)
