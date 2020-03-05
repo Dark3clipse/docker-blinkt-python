@@ -7,3 +7,4 @@ services:
       dockerfile: ./Dockerfile
     image: shadash/docker-blinkt:latest
     restart: always
+    privileged: true
