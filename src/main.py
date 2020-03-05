@@ -12,18 +12,16 @@ client = docker.from_env()
 
 # visualize active containers
 while(True):
-    print(client.containers.list())
     for container in client.containers.list():
-        print(container.attrs['Config']['Image'])
-        if container.attrs['Config']['Image']=="angelnu/glusterfs:latest":
+        if container.attrs['Config']['Image'].split('@')[0]=="angelnu/glusterfs:latest":
             set_pixel(0, 0, 0, 255)
-        if container.attrs['Config']['Image']=="shadash/docker-multiarch-jenkins:latest":
+        if container.attrs['Config']['Image'].split('@')[0]=="shadash/docker-multiarch-jenkins:latest":
             set_pixel(1, 255, 255, 0)
-        if container.attrs['Config']['Image']=="registry:2":
+        if container.attrs['Config']['Image'].split('@')[0]=="registry:2":
             set_pixel(2, 255, 255, 255)
-        if container.attrs['Config']['Image']=="shadash/docker-multiarch-visualizer:v1":
+        if container.attrs['Config']['Image'].split('@')[0]=="shadash/docker-multiarch-visualizer:v1":
             set_pixel(3, 128, 0, 255)
-        if container.attrs['Config']['Image']=="nginx:latest":
+        if container.attrs['Config']['Image'].split('@')[0]=="nginx:latest":
             set_pixel(4, 255, 0, 255)
 
     # disk usage green (0%) to red (100%) on LED 5
