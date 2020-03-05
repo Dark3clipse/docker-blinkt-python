@@ -6,6 +6,10 @@ WORKDIR /usr/src/app
 ADD src ./src
 ADD requirements.txt .
 
+# add user
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 111 ubuntu
+USER ubuntu
+
 # install packages
 RUN curl https://get.pimoroni.com/blinkt | bash
 RUN pip3 install -r requirements.txt

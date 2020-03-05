@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  docker-blinkt:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: shadash/docker-blinkt:latest
+    restart: always
