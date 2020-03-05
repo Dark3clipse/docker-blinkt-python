@@ -48,4 +48,4 @@ while(True):
     set_pixel(7, cpu, 255-cpu, 0)
 
     show()
-    time.sleep(0.01)
+    time.sleep(0.025)
