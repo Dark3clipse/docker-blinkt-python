@@ -8,11 +8,20 @@ clear()
 
 # initialize docker-client
 client = docker.from_env()
-print(client.containers.list())
 
-
-set_pixel(1, 255, 255, 255)
-show()
-
+# visualize active containers
 while(True):
-    time.sleep(1)
+    for container in client.containers.list():
+        if container.attrs['Config']['Image']=="angelnu/glusterfs:latest":
+            set_pixel(0, 255, 255, 255)
+        elif container.attrs['Config']['Image']=="shadash/docker-multiarch-jenkins:latest":
+            set_pixel(1, 255, 255, 255)
+        elif container.attrs['Config']['Image']=="registry:2":
+            set_pixel(2, 255, 255, 255)
+        elif container.attrs['Config']['Image']=="shadash/docker-multiarch-visualizer:v1":
+            set_pixel(3, 255, 255, 255)
+        elif container.attrs['Config']['Image']=="nginx:latest":
+            set_pixel(4, 255, 255, 255)
+    set_pixel(5, 0, 255, 0)
+    show()
+    time.sleep(0.5)

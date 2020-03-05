@@ -8,3 +8,5 @@ services:
     image: shadash/docker-blinkt:latest
     restart: always
     privileged: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
