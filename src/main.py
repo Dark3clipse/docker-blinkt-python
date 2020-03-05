@@ -14,7 +14,7 @@ client = docker.from_env()
 while(True):
     print(client.containers.list())
     for container in client.containers.list():
-        print(container)
+        print(container.attrs['Config']['Image'])
         if container.attrs['Config']['Image']=="angelnu/glusterfs:latest":
             set_pixel(0, 0, 0, 255)
         if container.attrs['Config']['Image']=="shadash/docker-multiarch-jenkins:latest":
