@@ -23,18 +23,22 @@ while(True):
         set_pixel(0, 0, 0, 255)
     else:
         set_pixel(0, 0, 0, 0)
+
     if "shadash/docker-multiarch-jenkins:latest" in a:
         set_pixel(1, 255, 255, 0)
     else:
-        set_pixel(2, 0, 0, 0)
+        set_pixel(1, 0, 0, 0)
+
     if "registry:2" in a:
         set_pixel(2, 255, 255, 255)
     else:
-        set_pixel(3, 0, 0, 0)
+        set_pixel(2, 0, 0, 0)
+
     if "shadash/docker-multiarch-visualizer:v1" in a:
         set_pixel(3, 128, 0, 255)
     else:
-        set_pixel(4, 0, 0, 0)
+        set_pixel(3, 0, 0, 0)
+
     if "nginx:latest" in a:
         set_pixel(4, 255, 0, 255)
     else:
